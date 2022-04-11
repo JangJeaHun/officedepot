@@ -1,0 +1,194 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+body{
+    font-family: "Noto Sans KR",'Noto Sans',sans-serif;
+}
+a:visited,a:link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.wrap{
+    width: 1048px;
+    margin: 0 auto;
+}
+.topHeader{
+    height: 114px;
+    display: flex;
+    justify-content: space-between;
+
+}
+#logo{
+    padding-top: 39.5px;
+}
+
+
+
+#subnavi{
+    width: 425px;
+    padding-top: 46.5px;
+    font-size: 18px;
+}
+#subnavi>div{
+    float: left;
+    padding-left: 15px;
+    font-weight: bold;
+}
+nav{
+    height: 55px;
+}
+#allMenuBtn a{
+    display: block;
+    width: 168px;
+    font-size: 20px;
+    height: 55px;
+    line-height: 55px;
+
+    
+}
+#header_bottom{
+    display: flex;
+    justify-content: space-between;
+}
+
+#gnb{
+    width: 877px;
+    display: flex;
+    justify-content: space-around;
+}
+#gnb a{
+    display: block;
+    font-size: 19px;
+    height: 55px;
+    font-weight: bold;
+    line-height: 55px;
+    
+}
+.border{
+    width: 100%;
+    border: 1px solid #eee;
+}
+
+/* 전체메뉴 테이블 */
+.allMenu{
+    display: none;
+    position: relative;
+    overflow-y:scroll;
+    height: 750px;
+    width: 110%;
+    background-color: white;
+    z-index: 1;
+}
+.allMenu table{
+    border: 1px solid black;
+    width: 100%;
+}
+.allMenu caption{
+    display: none;
+}
+
+
+.allMenu td{
+    border-right: dotted 1px black;
+}
+.allMenu dt{
+    font-weight: bold;
+    padding: 0 0 13px;
+    font-size: 12px;
+}
+.allMenu dd{
+    color: #666;
+    width: 135.56px;
+    padding: 0 0 8px;
+}
+.allMenu dl{
+    padding: 20px 0 7px 16px;
+}
+.allMenu tr{
+    /* display: flex; */
+    /* justify-content: space-around; */
+    font-size: 11px;
+    text-align: center;
+}
+.allMenu_close{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    border: 1px solid #666;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+/* 메인슬라이드 */
+.mainSlide{
+    position: relative;
+    display: none;
+    height: 428px;
+    width: 100%;
+}
+.mainSlide>div{
+    position: absolute;
+}
+.mainSlide:first-child{
+    display: block;
+}
+
+
+.main_bottom{
+    display: flex;
+    justify-content: space-around;
+    height: 46px;
+    margin: 0 auto;
+    width: 1048px;
+    
+}
+.main_bottom>ul{
+    display: flex;
+    width: 896px;
+    justify-content: space-around;
+    border: 1px solid #eee;
+}
+.main_bottom>ul>li{
+    position: relative;
+    width: 149.333px;
+    border-right: 1px solid #eee;
+}
+.main_bottom li{
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+}
+.main_bottom>ul>li>ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.main_bottom>ul>li>ul>li{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.main_bottom>ul>li>ul>li>a{
+    width: 100%;
+}
+
+.main_bottom>ul>li>ul>li>a:hover{
+    border-bottom: solid 3px red;
+}
+
+
+.slide_btn{
+    width: 150px;
+    background-color: #666;
+}
