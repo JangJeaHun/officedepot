@@ -25,7 +25,9 @@ a:visited,a:link{
 #logo{
     padding-top: 39.5px;
 }
-
+.on{
+    display: block;
+}
 
 
 #subnavi{
@@ -129,17 +131,19 @@ nav{
 
 /* 메인슬라이드 */
 .mainSlide{
+    display: block;
     position: relative;
-    display: none;
     height: 428px;
     width: 100%;
+    margin-bottom: 20px;
 }
-.mainSlide>div{
+/* .mainSlide>div{
+    display: none;
     position: absolute;
 }
 .mainSlide:first-child{
     display: block;
-}
+} */
 
 
 .main_bottom{
