@@ -190,9 +190,7 @@ nav{
 .main_bottom>ul>li>ul>li>a:hover{
     border-bottom: solid 3px red;
 }
-.tab>li{
-    width: 100%;
-}
+
 
 .slide_btn{
     width: 150px;

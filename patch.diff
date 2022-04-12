@@ -1,0 +1,160 @@
+From 52136544e7efb1f799abd7e70918b611fbea76a2 Mon Sep 17 00:00:00 2001
+From: J <wkdwogns2345@naver.com>
+Date: Mon, 11 Apr 2022 21:49:16 +0900
+Subject: [PATCH] 0411
+
+---
+ css/style.css |  4 +++-
+ index.html    | 26 +++++++++++++-------------
+ js/main.js    | 52 ++++++++++++++++++++++++++++++++++++++++-----------
+ 3 files changed, 57 insertions(+), 25 deletions(-)
+
+diff --git a/css/style.css b/css/style.css
+index 3242e38..f9a995b 100644
+--- a/css/style.css
++++ b/css/style.css
+@@ -190,7 +190,9 @@ nav{
+ .main_bottom>ul>li>ul>li>a:hover{
+     border-bottom: solid 3px red;
+ }
+-
++.tab>li{
++    width: 100%;
++}
+ 
+ .slide_btn{
+     width: 150px;
+diff --git a/index.html b/index.html
+index b05c888..401df43 100644
+--- a/index.html
++++ b/index.html
+@@ -827,49 +827,49 @@
+ 						<li data-group-filter="0">
+ 							이달의이벤트
+ 							<ul class="tab">
+-								<li><a></a></li>
+-								<li><a></a></li>
+-								<li><a></a></li>
++								<li class="listA"><a></a></li>
++								<li class="listA"><a></a></li>
++								<li class="listA"><a></a></li>
+ 							</ul>
+ 						</li>
+ 
+ 						<li data-group-filter="1">
+ 							식음료이벤트
+ 							<ul class="tab">
+-								<li><a></a></li>
+-								<li><a></a></li>
+-								<li><a></a></li>
+-								<li><a></a></li>
++								<li class="listA"><a></a></li>
++								<li class="listA"><a></a></li>
++								<li class="listA"><a></a></li>
++								<li class="listA"><a></a></li>
+ 							</ul>
+ 						</li>
+ 						
+ 						<li data-group-filter="2">
+ 							위생용품
+ 							<ul class="tab">
+-								<li><a></a></li>
++								<li class="listA"><a></a></li>
+ 							</ul>
+ 						</li>
+ 						
+ 						<li data-group-filter="3">
+ 							생활가전
+ 							<ul class="tab">
+-								<li><a></a></li>
+-								<li><a></a></li>
+-								<li><a></a></li>
++								<li class="listA"><a></a></li>
++								<li class="listA"><a></a></li>
++								<li class="listA"><a></a></li>
+ 							</ul>
+ 						</li>
+ 						
+ 						<li data-group-filter="4">
+ 							책상정리
+ 							<ul class="tab">
+-								<li><a></a></li>
++								<li class="listA"><a></a></li>
+ 							</ul>
+ 						</li>
+ 
+ 						<li data-group-filter="5">
+ 							전산용품
+ 							<ul class="tab">
+-								<li><a></a></li>
++								<li class="listA"><a></a></li>
+ 							</ul>
+ 						</li>
+ 						
+diff --git a/js/main.js b/js/main.js
+index 3bd0517..7fbba07 100644
+--- a/js/main.js
++++ b/js/main.js
+@@ -1,18 +1,48 @@
+ $(document).ready(function () {
+-  $("#allMenuBtn").click(function () {
++    $("#allMenuBtn").click(function () {
+     $(".allMenu").show();
+-  });
++    });
+ 
+-  $(".allMenu_close").click(function () {
++    $(".allMenu_close").click(function () {
+     $(".allMenu").hide();
+-  });
++    });
++
++
++
++    $(".mainSlide").slick({
++    infinite:true,
++    arrows:false,
++    dots:true,
++    autoplay:true,
++    autoplaySpeed:4000
++    });
++    // .main_bottom>ul>li>ul>li>a:hover{
++    //     border-bottom: solid 3px red;
++    // }
++
++    $(".main_bottom>ul>li>ul>li>a").hover(function(){
++        $(this).addClass("on").css({
++            borderBottom: "solid 3px red"
++        });
++
++        
++    },function(){
++        $(this).css({
++            borderBottom: "1px solid #eee"
++        })
++        $(".main_bottom>ul>li a").removeClass();
++    })
++
++    $(".listA>a").mouseover(function () {
++        var li_on = $(this).parent().parent().parent().attr("data-group-filter");
++        var li_on_num = $(this).parent().eq("li").index();
++
++        console.log(li_on_num);
++    //   if(data-group-filter==0 & ){
++            
++    //   }
++
++    });
+ 
+-  $(".mainSlide").slick({
+-    fade: true,
+-    pauseOnHover: true,
+-    autoplay: true,
+-    autoplaySpeed: 3000,
+-  });
+ 
+-  $(".tab>li>a").mouseover(function () {});
+ });
+-- 
+2.34.1.windows.1
+
