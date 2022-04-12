@@ -1,8 +1,9 @@
 $(document).ready(function () {
+  numbering();
   category();
   var idx = 0;
   slide();
-
+  mv_btn();
   // $(".mainSlide").slick({
   // infinite:true,
   // arrows:false,
@@ -41,7 +42,7 @@ $(document).ready(function () {
     var group = $(this).attr("data-group-filter");
     $(".tab>li", this).mouseover(function () {
       var index = $(this).index();
-      $(".mainSlide>div[data-group=" + group + "]").eq(index).fadeIn().siblings("div").fadeOut();
+      $(".mainSlide>div[data-group=" + group + "]").eq(index).fadeIn().addClass("on").siblings("div").fadeOut().removeClass("on");
     });
   });
 
@@ -58,15 +59,18 @@ $(document).ready(function () {
     // 메인슬라이드
     function slide() {
       ms = setInterval(function () {
-        $(".mainSlide>div").eq(idx).fadeOut();
+        $(".mainSlide>div").eq(idx).fadeOut().removeClass("on");
         if (idx < 12) {
           idx++;
         } else {
           idx = 0;
         }
-        $(".mainSlide>div").eq(idx).fadeIn();
+        $(".mainSlide>div").eq(idx).fadeIn().addClass("on");
       }, 3000);
     }
+
+
+    
 });
 
 function category() {
@@ -78,3 +82,39 @@ function category() {
     $(".allMenu").slideToggle();
   });
 }
+
+
+function mv_btn() {
+  $(".slide_play").click(function(){
+    $(".slide_pause").show().siblings("i").hide();
+    clearInterval(ms);
+  })
+  $(".slide_pause").click(function(){
+    $(".slide_play").show().siblings("i").hide();
+    slide();
+  })
+}
+
+function slide_prev(){
+
+}
+function slide_next(){
+
+}
+function numbering(){
+  // var num = $(".main .mainSlide div.on").parent().index();
+  var num = $(".mainSlide>div").find(".on").parent().index();
+
+  var num_max = $(".mainSlide>div").length;
+  $(".slide_btn .numbering .num").empty().append(num+1);
+  $(".slide_btn .numbering .num_max").empty().append(num_max);
+  // alert(num+1);
+}
+
+
+// function numbering(){
+//   var number_max = $("#mainVisual .mask01 ul li").length;
+//   var number = $("#mainVisual .mask01 ul li.on").index();
+//   $("#mainVisual .numbering .num_max").empty().append(number_max);
+//   $("#mainVisual .numbering .num").empty().append(number+1);
+// }
