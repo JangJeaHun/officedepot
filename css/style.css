@@ -137,13 +137,13 @@ nav{
     width: 100%;
     margin-bottom: 20px;
 }
-/* .mainSlide>div{
+.mainSlide>div{
     display: none;
     position: absolute;
 }
-.mainSlide:first-child{
+.mainSlide>div:first-child{
     display: block;
-} */
+}
 
 
 .main_bottom{
