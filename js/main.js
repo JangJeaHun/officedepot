@@ -47,6 +47,7 @@ $(document).ready(function () {
     $(".tab>li", this).mouseover(function () {
       var index = $(this).index();
       $(".mainSlide>div[data-group=" + group + "]").eq(index).fadeIn().addClass("on").siblings("div").fadeOut().removeClass("on");
+      numbering()
     });
   });
 
@@ -70,6 +71,7 @@ $(document).ready(function () {
           idx = 0;
         }
         $(".mainSlide>div").eq(idx).fadeIn().addClass("on");
+        numbering()
       }, 3000);
     }
 
@@ -108,16 +110,8 @@ function slide_next(){
 }
 function numbering(){
   var index = $(".main>.mainSlide div.on").index();
-  $(".slide_btn .numbering .num").append(index+1);
+  $(".slide_btn .numbering .num").empty().append(index+1);
   console.log(index);
-
-
-
-
-
-
-
-  
   var num_max = $(".main>.mainSlide>div").length;
   $(".slide_btn .numbering .num_max").empty().append(num_max);
 }
