@@ -5,7 +5,7 @@ $(document).ready(function () {
   slide();
   mv_btn();
   scroll_header();
-
+  slide_next();
  
  
   // $(".mainSlide").slick({
@@ -103,25 +103,26 @@ function slide_prev(){
 
 }
 function slide_next(){
-
+  
+  
 }
 function numbering(){
-  // var num = $(".main .mainSlide div.on").parent().index();
-  var num = $(".mainSlide>div").find(".on").parent().index();
+  var index = $(".main>.mainSlide div.on").index();
+  $(".slide_btn .numbering .num").append(index+1);
+  console.log(index);
 
-  var num_max = $(".mainSlide>div").length;
-  $(".slide_btn .numbering .num").empty().append(num+1);
+
+
+
+
+
+
+  
+  var num_max = $(".main>.mainSlide>div").length;
   $(".slide_btn .numbering .num_max").empty().append(num_max);
-  // alert(num+1);
 }
 
 
-// function numbering(){
-//   var number_max = $("#mainVisual .mask01 ul li").length;
-//   var number = $("#mainVisual .mask01 ul li.on").index();
-//   $("#mainVisual .numbering .num_max").empty().append(number_max);
-//   $("#mainVisual .numbering .num").empty().append(number+1);
-// }
 
 
 // 상단에 메뉴 픽스 하기
@@ -133,7 +134,7 @@ function scroll_header(){
     }else{
       $(".sub_header").hide().removeClass("jbFixed");
     }
-    console.log(height);
+    // console.log(height);
   });
   $(window).trigger("scroll");
 }
