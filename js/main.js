@@ -1,9 +1,13 @@
 $(document).ready(function () {
+  var idx = 0;
   numbering();
   category();
-  var idx = 0;
   slide();
   mv_btn();
+  scroll_header();
+
+ 
+ 
   // $(".mainSlide").slick({
   // infinite:true,
   // arrows:false,
@@ -118,3 +122,18 @@ function numbering(){
 //   $("#mainVisual .numbering .num_max").empty().append(number_max);
 //   $("#mainVisual .numbering .num").empty().append(number+1);
 // }
+
+
+// 상단에 메뉴 픽스 하기
+function scroll_header(){
+  $(window).scroll(function () {
+    var height = $(window).scrollTop();
+    if(height>200){
+      $(".sub_header").show().addClass("jbFixed");
+    }else{
+      $(".sub_header").hide().removeClass("jbFixed");
+    }
+    console.log(height);
+  });
+  $(window).trigger("scroll");
+}
