@@ -87,7 +87,6 @@ a:visited,a:link{
 
 
 
-
 #subnavi{
     width: 425px;
     padding-top: 46.5px;
@@ -197,7 +196,7 @@ nav{
     display: flex;
     justify-content: space-between;
 }
-.sub_header>.wrap .sub_header_r{
+.sub_header>.wrap .sub_header_l{
     display: flex;
     align-items: center;
     color: red;
@@ -206,10 +205,10 @@ nav{
     font-size: 1.6rem;
     padding-right: 10px;
 }
-.sub_header>.wrap>.sub_header_l{
+.sub_header>.wrap>.sub_header_r{
     display: flex;
 }
-.sub_header>.wrap>.sub_header_l i{
+.sub_header>.wrap>.sub_header_r i{
     color: #8a8a8a;
 }
 .sub_header>.wrap .sub_search_box{
@@ -299,6 +298,9 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+.fa-solid{
+    cursor: pointer;
 }
 .numbering{
     display: flex;
@@ -440,3 +442,12 @@ footer .fr address a{
     text-decoration: underline;
     
 }
+.copy{
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+/* 메인 index.html 끝 */
+
+/* 회원가입 폼 시작 */
+

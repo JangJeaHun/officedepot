@@ -5,9 +5,33 @@ $(document).ready(function () {
   slide();
   mv_btn();
   scroll_header();
-  slide_next();
- 
- 
+
+  $(".slide_btn>.btn_next").click(function(){
+    $(".mainSlide>div").eq(idx).fadeOut().removeClass("on");
+      if (idx < 12) {
+        idx++;
+      } else {
+        idx = 0;
+      }
+    $(".mainSlide>div").eq(idx).fadeIn().addClass("on");
+    numbering();
+  });
+
+  $(".slide_btn>.btn_prev").click(function(){
+    $(".mainSlide>div").eq(idx).fadeOut().removeClass("on");
+    if (idx > 0) {
+      idx--;
+    } else {
+      idx = 12;
+    }
+  $(".mainSlide>div").eq(idx).fadeIn().addClass("on");
+  numbering();
+
+})
+
+
+
+
   // $(".mainSlide").slick({
   // infinite:true,
   // arrows:false,
@@ -51,7 +75,7 @@ $(document).ready(function () {
     });
   });
 
-  $(".main_bottom").hover(
+  $(".main_bottom, .main>.mainSlide").hover(
     function () {
       clearInterval(ms);
     },
@@ -71,7 +95,7 @@ $(document).ready(function () {
           idx = 0;
         }
         $(".mainSlide>div").eq(idx).fadeIn().addClass("on");
-        numbering()
+        numbering();
       }, 3000);
     }
 
@@ -101,13 +125,6 @@ function mv_btn() {
   })
 }
 
-function slide_prev(){
-
-}
-function slide_next(){
-  
-  
-}
 function numbering(){
   var index = $(".main>.mainSlide div.on").index();
   $(".slide_btn .numbering .num").empty().append(index+1);
@@ -115,9 +132,6 @@ function numbering(){
   var num_max = $(".main>.mainSlide>div").length;
   $(".slide_btn .numbering .num_max").empty().append(num_max);
 }
-
-
-
 
 // 상단에 메뉴 픽스 하기
 function scroll_header(){
@@ -132,3 +146,7 @@ function scroll_header(){
   });
   $(window).trigger("scroll");
 }
+
+
+// 회원가입 index
+
