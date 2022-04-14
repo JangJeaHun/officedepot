@@ -28,7 +28,9 @@ a:visited,a:link{
     width: 1048px;
     margin: 0 auto;
 }
-
+.header{
+    box-shadow:  1px 1px 10px #ebebeb;
+}
 .header_top{
     background-color: #ebebeb;
     color: #444;
@@ -189,7 +191,6 @@ nav{
 .sub_header{
     height: 55px;
     box-shadow:  1px 1px 10px #ebebeb;
-
 }
 .sub_header>.wrap{
     padding-top: 10px;
@@ -451,3 +452,162 @@ footer .fr address a{
 
 /* 회원가입 폼 시작 */
 
+section .wrap>.sub_navi{
+    display: flex;
+    padding-top: 30px;
+}
+section .wrap>.sub_navi>div{
+    padding-right: 5px;
+    font-size: 12px;
+    color: #444;
+}
+section .join_wecome{
+    text-align: center;
+    padding: 50px 0;
+}
+section .join_desr{
+    text-align: center;
+    padding: 30px 0;
+}
+section .join_form{
+    text-align: center;
+    padding-top: 20px;
+}
+
+
+section .join_form #tab>ul{
+    display: flex;
+    justify-content: center;
+}
+section .join_form #tab>ul>li>a{
+    display: block;
+    background-color: #ececec;
+    color: #666;
+    width: 510px;
+    height: 42px;
+    font-size: 18px;
+    line-height: 42px;
+    border: 1px solid #fff;
+    border-bottom: 1px solid #333;
+}
+section .join_form #tab>ul>li>a.on{
+    background-color: #fff;
+    border: 1px solid #333;
+    border-bottom: 1px solid #fff;
+}
+#tab_contents{
+    margin: 0 auto;
+    border: #333 solid 1px;
+    border-top: #fff solid 1px;
+    width: 1020px;
+    height: 411px;
+}
+#tab_contents>ul>.personal{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+/* 회원가입 개인회원 폼 */
+#tab_contents>ul>li .inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    width: 500px;
+    height: 352px;
+    background-color: #f6f6f6;
+}
+#tab_contents>ul>li .inner>.txtBox{
+    padding-left: 30px;
+}
+#tab_contents>ul>li .inner>.txtBox>a{
+    background-color: #494949;
+    border-radius: 15px;
+    width: 190px;
+    line-height: 25px;
+    font-size: 16px;
+    color: #fff;
+    padding: 5px 10px;
+}
+#tab_contents>ul>li .inner>.txtBox>dl{
+    padding-bottom: 20px;
+    font-size: 20px;
+    color: #494949;
+}
+#tab_contents>ul>li .inner>.txtBox>dl>dt{
+    padding: 20px 0;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+}
+#tab_contents>ul>li .inner>.txtBox>dl>dd{
+    padding: 10px 0;
+}
+
+/* 회원가입 기업회원 폼 */
+#tab_contents>ul .company>dl{
+    display: block;
+    padding: 20px 0;
+}
+#tab_contents>ul .company>dl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#tab_contents>ul .company>dl>dt{
+    font-size: 18px;
+}
+#tab_contents>ul .company>dl input{
+    height: 30px;
+}
+#tab_contents>ul .company>dl a{
+    display: inline-block;
+    font-size: 14px;
+    background: #494949;
+    color: #fff;
+    border-radius: 10px;
+    width: 115px;
+    height: 28px;
+    line-height: 28px;
+
+}
+
+
+
+#tab_contents>ul .company>ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+#tab_contents>ul .company>ul>li>dl{
+    height: 128px;
+    width: 500px;
+    position: relative;
+}
+#tab_contents>ul .company>ul>li>dl>div:last-child{
+    float: left;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 2;
+}
+#tab_contents>ul .company>ul>li>dl>.company_wrap{
+    border:  1px solid #cbcbcb;
+    background-color: #ececec;
+    height: 110px;
+    display: flex;
+    text-align: left;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 12px;
+    color: #494949;
+}
+#tab_contents>ul .company>ul>li>dl>.company_wrap>dt{
+    font-size: 20px;
+}

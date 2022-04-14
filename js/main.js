@@ -149,4 +149,4 @@ function scroll_header(){
 
 
 // 회원가입 index
-
+$("#tab>ul>li")
