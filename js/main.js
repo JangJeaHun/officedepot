@@ -5,6 +5,7 @@ $(document).ready(function () {
   slide();
   mv_btn();
   scroll_header();
+  tab();
 
   $(".slide_btn>.btn_next").click(function(){
     $(".mainSlide>div").eq(idx).fadeOut().removeClass("on");
@@ -149,4 +150,19 @@ function scroll_header(){
 
 
 // 회원가입 index
-$("#tab>ul>li")
+function tab(){
+  $("#tab>ul>li").click(function(){
+    var tab_idx = $(this).index();
+
+    $(this).children().addClass("on");
+    $(this).siblings("li").children().removeClass("on");
+
+
+
+
+
+    $("#tab_contents>ul>li").eq(tab_idx).show().siblings("li").hide();
+  })
+
+
+}

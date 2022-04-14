@@ -479,7 +479,8 @@ section .join_form #tab>ul{
     display: flex;
     justify-content: center;
 }
-section .join_form #tab>ul>li>a{
+section .join_form #tab>ul>li>p{
+    cursor: pointer;
     display: block;
     background-color: #ececec;
     color: #666;
@@ -490,7 +491,7 @@ section .join_form #tab>ul>li>a{
     border: 1px solid #fff;
     border-bottom: 1px solid #333;
 }
-section .join_form #tab>ul>li>a.on{
+section .join_form #tab>ul>li>p.on{
     background-color: #fff;
     border: 1px solid #333;
     border-bottom: 1px solid #fff;
@@ -510,6 +511,9 @@ section .join_form #tab>ul>li>a.on{
 
 
 /* 회원가입 개인회원 폼 */
+#tab_contents>ul .company{
+    display: none;
+}
 #tab_contents>ul>li .inner{
     display: flex;
     justify-content: center;
@@ -610,4 +614,19 @@ section .join_form #tab>ul>li>a.on{
 }
 #tab_contents>ul .company>ul>li>dl>.company_wrap>dt{
     font-size: 20px;
+}
+
+/* 회원가입 bottom */
+.join_bottom>.certify_warp{
+    padding: 30px;
+    display: flex;
+}
+.join_bottom>.certify_warp>span{
+    color: #777;
+    font-size: 20px;
+    font-weight: bold;
+}
+.join_bottom>.certify_warp>dl{
+    padding-left: 20px;
+    display: flex;
 }
