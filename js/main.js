@@ -6,6 +6,7 @@ $(document).ready(function () {
   mv_btn();
   scroll_header();
   tab();
+  header_ranking();
 
   $(".slide_btn>.btn_next").click(function(){
     $(".mainSlide>div").eq(idx).fadeOut().removeClass("on");
@@ -165,4 +166,24 @@ function tab(){
 
 }
 
+// 태블릿 화면
 
+function header_ranking(){
+
+  $(".m_header_bottom>button").click(function(){
+    $(".m_header_bottom>button").hide();
+    $("#m_header_bottom_ranking").show();
+  })
+  
+  $("#m_header_bottom_ranking>button i").click(function(){
+    $(".m_header_bottom>button").show();
+    $("#m_header_bottom_ranking").hide();
+  })
+
+  $("#m_header_bottom_ranking .ranking_tab>li").click(function(){
+    var idx = $(this).index();
+
+    $(this).addClass("acctive").siblings("li").removeClass();
+    $("#m_header_bottom_ranking .data_val>div").eq(idx).show().css({display:"flex"}).siblings("div").hide();
+  })
+}

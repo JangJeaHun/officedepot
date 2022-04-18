@@ -238,8 +238,11 @@ nav{
     margin-bottom: 20px;
 }
 .mainSlide>div{
-    display: none;
+    /* display: none; */
     position: absolute;
+}
+.mainSlide>div img{
+    width: 100%;
 }
 .mainSlide>div:first-child{
     display: block;
@@ -656,7 +659,7 @@ section .join_form #tab>ul>li>p.on{
 #moblie_header,.main>.m_slide,.m_header_bottom{
     display: none;
 }
-/* 사이즈 769px 테블릿 버전 */
+/* 사이즈 769px 테블릿 버전 *****************************************************/ 
 
 
 @media all and ( max-width: 769px ){
@@ -674,9 +677,8 @@ section .join_form #tab>ul>li>p.on{
         height: 60px;
         width: 100%;
     }
-    .main>.m_slide{
-        display: block;
-    }
+    
+    
     .header , .sub_header, .main_bottom,.sub_header{
         display: none;
     }
@@ -739,6 +741,13 @@ section .join_form #tab>ul>li>p.on{
     }
     #m_header_bottom_ranking{
         position: relative;
+        display: none;
+    }
+    #m_header_bottom_ranking>button{
+        top: -30px;
+    }
+    #m_header_bottom_ranking>button i{
+        font-size: 24px;
     }
     #m_header_bottom_ranking .ir{
         position: absolute;
@@ -772,30 +781,43 @@ section .join_form #tab>ul>li>p.on{
         height: 30px;
         line-height: 30px;
     }
-    #m_header_bottom_ranking .taking_tab{
+    #m_header_bottom_ranking .ranking_tab{
+        display: flex;
+        justify-content: center;
+    }
+    #m_header_bottom_ranking .ranking_tab>li{
+        display: block;
+        width: 300px;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #eee;
+        color: 666;
+        height: 40px;
+        line-height: 40px;
+    }
+    #m_header_bottom_ranking .ranking_tab>li.acctive{
+        background-color: red;
+        color: white;
+    }
+    #m_header_bottom_ranking .data_val div{
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
         
     }
-
-
-
     
-    .mainSlide{
+    #m_header_bottom_ranking .data_val div div{
+        text-align: left;
+        width: 50%;
+        height: 38px;
+        border-bottom: 1px solid #888;
+        
+    }
+    
+    #m_header_bottom_ranking .data_val>.reco{
         display: none;
     }
-    .main>.m_slide{
-        position: relative;
-        height: 403px;
-    }
-    .main>.m_slide img{
-        width: 100%;
-    }
-    .main>.m_slide>div{
-        position: absolute;
-        /* display: none; */
-    }
-    .main>.m_slide>div:first-child{
-        display: block;
-    }
+     
 
     .main>.wrap>.depot_service>h2{
         display: none;
@@ -822,5 +844,37 @@ section .join_form #tab>ul>li>p.on{
     .hot_more{
         right: 40px;
     }
+}
     
+    
+@media all and ( max-width: 425px ){
+    .wrap{
+        width: 425px;
+        margin: 0 auto;
+    }
+    .main>.mainSlide{
+        display: none;
+    }
+    #m_header_bottom_menu a{
+        font-size: 12px;
+        height: 30px;
+        line-height: 30px;
+        color: #424242;
+    }
+
+    footer{
+        text-align: center;
+    }
+    footer .footer_bottom{
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    footer .footer_bottom .footer_logo{
+        justify-content: center;
+    }
+    .hot_more{
+        top: 80px;
+    }
 }
