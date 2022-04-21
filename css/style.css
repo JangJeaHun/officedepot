@@ -231,14 +231,13 @@ nav{
 
 /* 메인슬라이드 */
 .mainSlide{
-    display: block;
     position: relative;
     height: 428px;
     width: 100%;
     margin-bottom: 20px;
 }
 .mainSlide>div{
-    /* display: none; */
+    display: none;
     position: absolute;
 }
 .mainSlide>div img{
@@ -368,7 +367,34 @@ nav{
     top: 30px;
     right: 0;
 }
-
+#m_bottom_menu{
+    border-bottom: 1px solid black ;
+    background-color: #fff;
+    position: fixed;
+    z-index: 19;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 6px 6px 6px 6px gray;
+}
+#m_bottom_menu>li{
+    width: 100%;
+    text-align: center;
+}
+#m_bottom_menu>li>a{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    font-size: 12px;
+}
+#m_bottom_menu>li>a i{
+    padding-bottom: 10px;
+    font-size: 26px;
+}
 
 /* footer 영역 시작 */
 footer{
@@ -697,7 +723,10 @@ section .join_form #tab>ul>li>p.on{
         height: 21px;
     }
     .m_header_bottom{
+        background-color: #fff;
         display: block;
+        position: fixed;
+        z-index: 9;
         width: 100%;
         padding-top: 60px;
     }
@@ -787,7 +816,7 @@ section .join_form #tab>ul>li>p.on{
     }
     #m_header_bottom_ranking .ranking_tab>li{
         display: block;
-        width: 300px;
+        width: 50%;
         text-align: center;
         border-radius: 10px;
         background-color: #eee;
@@ -817,7 +846,10 @@ section .join_form #tab>ul>li>p.on{
     #m_header_bottom_ranking .data_val>.reco{
         display: none;
     }
-     
+    .main>.mainSlide{
+        padding-top: 191px;
+        height: 163px;
+    }
 
     .main>.wrap>.depot_service>h2{
         display: none;
@@ -844,6 +876,17 @@ section .join_form #tab>ul>li>p.on{
     .hot_more{
         right: 40px;
     }
+    section>.wrap>.join_wecome ,#tab_contents{
+        display: none;
+    }
+    /* 회원가입 index */
+    section>.wrap .join_desr {
+        padding-top: 100px;
+    }
+    section>.wrap .join_desr img{
+        width: 80%;
+        
+    }
 }
     
     
@@ -854,6 +897,10 @@ section .join_form #tab>ul>li>p.on{
     }
     .main>.mainSlide{
         display: none;
+    }
+    .m_header_bottom{
+        width: 100%;
+        text-align: center;
     }
     #m_header_bottom_menu a{
         font-size: 12px;
@@ -877,4 +924,5 @@ section .join_form #tab>ul>li>p.on{
     .hot_more{
         top: 80px;
     }
+
 }
