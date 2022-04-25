@@ -33,6 +33,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans&family=Noto+Sans+KR&display=swap"
 		rel="stylesheet">
+		
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<link rel="stylesheet" href="css/style.css">
@@ -50,7 +52,8 @@
 							<a href="#"><img src="images/header-link03.jpg" alt="header Top 3번째 이미지"> </a>
 						</div>
 						<div class="header_top_menu">
-							<a href="#">로그인</a>
+							<a class="login" href="javascript:void(0)" onclick="kakaoLogin();">로그인</a>
+							<a class="logout" href="javascript:void(0)" onclick="kakaoLogout();">로그아웃</a>
 							<a href="joinStep/index.html">회원가입</a>
 							<a href="#">고객센터</a>
 							<a href="#">상품입점</a>
@@ -670,7 +673,7 @@
 		<div class="wrap">
 			<div id="moblie_header">
 				<div class="m_header_top">
-					<i class="fa-solid fa-bars sub_icon"></i>
+					<i class="fa-solid fa-bars"></i>
 					<a href="#"><img id="m_logo" src="images/m_logo.png" alt="모바일 헤더 로고 이미지"></a>
 					<img src="images/m_code.png" alt="모바일 헤더 오른쪽 이미지">
 				</div>

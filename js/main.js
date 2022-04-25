@@ -1,5 +1,9 @@
 $(document).ready(function () {
+
+  Kakao.init('dd0ce418ea8258701abccc22fe49ada3'); //발급받은 키 중 javascript키를 사용해준다.
+  console.log(Kakao.isInitialized()); // sdk초기화여부판단
   var idx = 0;
+
   slide();
   numbering();
   category();
@@ -8,6 +12,11 @@ $(document).ready(function () {
   tab();
   header_ranking();
   scroll();
+  // kakaoLogin();
+  // kakaoLogout();
+
+  
+
 
   $(".slide_btn>.btn_next").click(function(){
     $(".mainSlide>div").eq(idx).removeClass("on").fadeOut();
@@ -173,3 +182,66 @@ function scroll(){
 
   });
 }
+
+
+function kakaoLogin() {
+  let state;
+  
+  
+  Kakao.Auth.login({
+    success: function (response) {
+      Kakao.API.request({
+        url: '/v2/user/me',
+        success: function (response) {
+          console.log(response)
+          console.log("정상적으로 로그인 되었습니다",response)
+          let state = true;
+          
+          if(state == true){
+            $(".header_top_menu .login").hide();
+            $(".header_top_menu .logout").show();
+          }else{
+            $(".header_top_menu .login").show();
+            $(".header_top_menu .logout").hide();
+          }
+          
+        },
+        fail: function (error) {
+          console.log(error)
+        },
+      })
+    },
+    fail: function (error) {
+      console.log(error)
+    },
+  })
+
+}
+//카카오로그아웃  
+function kakaoLogout() {
+  let state;
+
+  if (Kakao.Auth.getAccessToken()) {
+    Kakao.API.request({
+      url: '/v1/user/unlink',
+      success: function (response) {
+        console.log(response)
+        console.log("정상적으로 로그아웃 되었습니다",response)
+
+        let state = false;
+          
+        if(state == true){
+          $(".header_top_menu .login").hide();
+          $(".header_top_menu .logout").show();
+        }else{
+          $(".header_top_menu .login").show();
+          $(".header_top_menu .logout").hide();
+        }
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+    Kakao.Auth.setAccessToken(undefined)
+  }
+} 

@@ -55,7 +55,9 @@ a:visited,a:link{
 .header_top>.wrap .header_top_menu>a:last-child{
     color: #e6002d;
 }
-
+.header_top>.wrap>.header_top_menu .logout{
+    display: none;
+}
 
 
 
@@ -316,10 +318,12 @@ nav{
     cursor: pointer;
 }
 .depot_service{
-    padding-top: 60px;
+    padding-top: 200px;
     width: 100%;
 }
-
+.main>.wrap>.depot_service>h2{
+    display: block !important;
+}
 .depot_service>div{
     width: 100%;
     display: flex;
