@@ -895,15 +895,26 @@ section .join_form #tab>ul>li>p.on{
     
     
 @media all and ( max-width: 425px ){
+    html, body{
+        max-width: 425px;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
     .wrap{
         width: 425px;
         margin: 0 auto;
     }
+    #m_bottom_menu{
+        width: 425px;
+    }
     .main>.mainSlide{
         display: none;
     }
+    #moblie_header{
+        width: 425px;
+    }
     .m_header_bottom{
-        width: 100%;
+        width: 425px;
         text-align: center;
     }
     #m_header_bottom_menu a{
@@ -912,9 +923,44 @@ section .join_form #tab>ul>li>p.on{
         line-height: 30px;
         color: #424242;
     }
+    .hot_item>.item>div img{
+        width: 425px;
+    }
 
+
+
+    .join_form>#tab>ul{
+        width: 425px;
+        
+    }
+    section .join_form #tab>ul>li>p{
+        width: 210px;
+        font-size: 0.9rem;
+    }
+    .join_bottom>.certify_warp>span{
+        font-size: 0.9rem;
+        width: 80px;
+    }
+    .join_bottom>.certify_warp>dl>dt {
+        font-size: 0.9rem;
+        width: 80px;
+        line-height: 14px;
+
+    }
+    .join_bottom>.certify_desc>ul{
+        padding: 0 0 0 10px;
+        word-wrap: break-word;
+    }
     footer{
         text-align: center;
+    }
+    footer>.footer_menu>.wrap{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    footer>.footer_menu>.wrap>.footer_menu_l{
+        justify-content: space-around;
     }
     footer .footer_bottom{
         height: 400px;
@@ -927,6 +973,12 @@ section .join_form #tab>ul>li>p.on{
     }
     .hot_more{
         top: 80px;
+    }
+    .footer_bottom .fr{
+        padding: 0;
+    }
+    .copy>.wrap>span{
+        font-size: 9px;
     }
 
 }
