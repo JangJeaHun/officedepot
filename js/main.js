@@ -1,5 +1,7 @@
 $(document).ready(function () {
-
+  var num_max = $(".main>.main_slide div").length;
+  $(".slide_btn .numbering .num_max").text(num_max);
+  
   Kakao.init('dd0ce418ea8258701abccc22fe49ada3'); //발급받은 키 중 javascript키를 사용해준다.
   // console.log(Kakao.isInitialized()); // sdk초기화여부판단
   var idx = $(".main>.main_slide div.on").index();
@@ -21,7 +23,7 @@ $(document).ready(function () {
   
   // 슬라이드 이전 버튼
   $(".slide_btn>.btn_prev").click(function(){
-    idx = $(".main>.main_slide div.on").index();
+    // idx = $(".main>.main_slide div.on").index();
     $(".main_slide>div").eq(idx).fadeOut().removeClass("on");
     if (idx > 0) {
       idx--;
@@ -34,7 +36,7 @@ $(document).ready(function () {
   
   // 슬라이드 다음 버튼
   $(".slide_btn>.btn_next").click(function(){
-    idx = $(".main>.main_slide div.on").index();
+    // idx = $(".main>.main_slide div.on").index();
     $(".main_slide>div").eq(idx).removeClass("on").fadeOut();
       if (idx < 12) {
         idx++;
@@ -104,14 +106,14 @@ function category() {
 // 정지/재생 버튼
 function mv_btn() {
   $(".slide_play").click(function(){
-    idx = $(".main>.main_slide div.on").index();
+    // idx = $(".main>.main_slide div.on").index();
 
     $(".slide_pause").stop().show().siblings("i").hide();
     clearInterval(ms);
   })
 
   $(".slide_pause").click(function(){
-    idx = $(".main>.main_slide div.on").index();
+    // idx = $(".main>.main_slide div.on").index();
     $(".slide_play").show().siblings("i").hide();
     slide();
   })
@@ -120,11 +122,11 @@ function mv_btn() {
 // 슬라이드 넘버링
 function numbering(){
   var index = $(".main>.main_slide div.on").index();
-  // console.log(index);
+  idx = index;
 
-  $(".slide_btn .numbering .num").empty().append(index+1);
-  var num_max = $(".main>.main_slide div").length;
-  $(".slide_btn .numbering .num_max").empty().append(num_max);
+  // console.log(index);
+  $(".slide_btn .numbering .num").text(index+1);
+  
 }
 
 // 상단에 메뉴 픽스 하기
