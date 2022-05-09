@@ -327,7 +327,7 @@ nav{
 .depot_service>div{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     box-sizing: border-box;
     border-spacing: 0px;
@@ -335,7 +335,9 @@ nav{
 .depot_service>.div_wrap>div{
     border: 1px solid rgba(0, 0, 0, 0);
 }
-
+.depot_service>div img{
+    width: 147px;
+}
 
 .depot_service>div>div:hover{
     border:1px solid #de7676;

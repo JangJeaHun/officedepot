@@ -1,10 +1,11 @@
 $(document).ready(function () {
 
   Kakao.init('dd0ce418ea8258701abccc22fe49ada3'); //발급받은 키 중 javascript키를 사용해준다.
-  console.log(Kakao.isInitialized()); // sdk초기화여부판단
-  var idx = 0;
+  // console.log(Kakao.isInitialized()); // sdk초기화여부판단
+  var idx = $(".main>.main_slide div.on").index();
+  console.log(idx);
   var ms;
-  slide();
+  // slide();
   numbering();
 
 
@@ -18,8 +19,9 @@ $(document).ready(function () {
   // kakaoLogout();
 
   
-
+  // 슬라이드 이전 버튼
   $(".slide_btn>.btn_prev").click(function(){
+    idx = $(".main>.main_slide div.on").index();
     $(".main_slide>div").eq(idx).fadeOut().removeClass("on");
     if (idx > 0) {
       idx--;
@@ -29,8 +31,10 @@ $(document).ready(function () {
     $(".main_slide>div").eq(idx).fadeIn().addClass("on");
     numbering();
   })
-
+  
+  // 슬라이드 다음 버튼
   $(".slide_btn>.btn_next").click(function(){
+    idx = $(".main>.main_slide div.on").index();
     $(".main_slide>div").eq(idx).removeClass("on").fadeOut();
       if (idx < 12) {
         idx++;
@@ -44,12 +48,13 @@ $(document).ready(function () {
   
 
   $(".main_bottom>ul>li").mouseover(function () {
+    numbering();
     var group = $(this).attr("data-group-filter");
     $(".tab>li", this).mouseover(function () {
       var index = $(this).index();
-      console.log(index);
+      
       $(".main_slide>div[data-group=" + group + "]").eq(index).fadeIn().addClass("on").siblings("div").fadeOut().removeClass("on");
-      numbering();
+
     });
   });
 
@@ -58,7 +63,8 @@ $(document).ready(function () {
 
     // 메인슬라이드
     function slide() {
-      ms = setInterval(function () {
+      var ms = setInterval(function () {
+        idx = $(".main>.main_slide div.on").index();
         $(".main_slide>div").eq(idx).fadeOut().removeClass("on");
         if (idx < 12) {
           idx++;
@@ -68,19 +74,22 @@ $(document).ready(function () {
         $(".main_slide>div").eq(idx).fadeIn().addClass("on");
         numbering();
       }, 3000);
-    }
+      
+      $(".main_bottom, .main>.main_slide, .main>.m_slide>").hover(
+        function () {
+          clearInterval(ms);
+        },
+        function () {
+          slide();
+          numbering();
+        }
+        );
+      };
 
-    $(".main_bottom, .main>.main_slide, .main>.m_slide>").hover(
-      function () {
-        clearInterval(ms);
-      },
-      function () {
-        slide();
-      }
-    );
+
 
     
-});
+
 
 function category() {
   $("#allMenuBtn").click(function () {
@@ -92,24 +101,29 @@ function category() {
   });
 }
 
-
+// 정지/재생 버튼
 function mv_btn() {
   $(".slide_play").click(function(){
-    $(".slide_pause").show().siblings("i").hide();
+    idx = $(".main>.main_slide div.on").index();
+
+    $(".slide_pause").stop().show().siblings("i").hide();
     clearInterval(ms);
   })
+
   $(".slide_pause").click(function(){
+    idx = $(".main>.main_slide div.on").index();
     $(".slide_play").show().siblings("i").hide();
     slide();
   })
 }
 
+// 슬라이드 넘버링
 function numbering(){
   var index = $(".main>.main_slide div.on").index();
-  $(".slide_btn .numbering .num").empty().append(index+1);
   // console.log(index);
+
+  $(".slide_btn .numbering .num").empty().append(index+1);
   var num_max = $(".main>.main_slide div").length;
-  // console.log(num_max);
   $(".slide_btn .numbering .num_max").empty().append(num_max);
 }
 
@@ -196,7 +210,7 @@ function kakaoLogin() {
       Kakao.API.request({
         url: '/v2/user/me',
         success: function (response) {
-          console.log(response)
+          console.log(response);
           console.log("정상적으로 로그인 되었습니다",response)
           let state = true;
           
@@ -248,3 +262,5 @@ function kakaoLogout() {
     Kakao.Auth.setAccessToken(undefined)
   }
 } 
+
+});
