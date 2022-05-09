@@ -3,9 +3,11 @@ $(document).ready(function () {
   Kakao.init('dd0ce418ea8258701abccc22fe49ada3'); //발급받은 키 중 javascript키를 사용해준다.
   console.log(Kakao.isInitialized()); // sdk초기화여부판단
   var idx = 0;
-
+  var ms;
   slide();
   numbering();
+
+
   category();
   mv_btn();
   scroll_header();
@@ -17,57 +19,58 @@ $(document).ready(function () {
 
   
 
-
-  $(".slide_btn>.btn_next").click(function(){
-    $(".mainSlide>div").eq(idx).removeClass("on").fadeOut();
-      if (idx < 12) {
-        idx++;
-      } else {
-        idx = 0;
-      }
-    $(".mainSlide>div").eq(idx).fadeIn().addClass("on");
-    numbering();
-  });
-
   $(".slide_btn>.btn_prev").click(function(){
-    $(".mainSlide>div").eq(idx).fadeOut().removeClass("on");
+    $(".main_slide>div").eq(idx).fadeOut().removeClass("on");
     if (idx > 0) {
       idx--;
     } else {
       idx = 12;
     }
-    $(".mainSlide>div").eq(idx).fadeIn().addClass("on");
+    $(".main_slide>div").eq(idx).fadeIn().addClass("on");
     numbering();
-
   })
+
+  $(".slide_btn>.btn_next").click(function(){
+    $(".main_slide>div").eq(idx).removeClass("on").fadeOut();
+      if (idx < 12) {
+        idx++;
+      } else {
+        idx = 0;
+      }
+    $(".main_slide>div").eq(idx).fadeIn().addClass("on");
+    numbering();
+  });
+
+  
 
   $(".main_bottom>ul>li").mouseover(function () {
     var group = $(this).attr("data-group-filter");
     $(".tab>li", this).mouseover(function () {
       var index = $(this).index();
-      $(".mainSlide>div[data-group=" + group + "]").eq(index).fadeIn().addClass("on").siblings("div").fadeOut().removeClass("on");
-      numbering()
+      console.log(index);
+      $(".main_slide>div[data-group=" + group + "]").eq(index).fadeIn().addClass("on").siblings("div").fadeOut().removeClass("on");
+      numbering();
     });
   });
 
 
 
-    var ms;
+
     // 메인슬라이드
     function slide() {
       ms = setInterval(function () {
-        $(".mainSlide>div").eq(idx).fadeOut().removeClass("on");
+        $(".main_slide>div").eq(idx).fadeOut().removeClass("on");
         if (idx < 12) {
           idx++;
         } else {
           idx = 0;
         }
-        $(".mainSlide>div").eq(idx).fadeIn().addClass("on");
+        $(".main_slide>div").eq(idx).fadeIn().addClass("on");
         numbering();
       }, 3000);
     }
 
-    $(".main_bottom, .main>.mainSlide, .main>.m_slide>").hover(
+    $(".main_bottom, .main>.main_slide, .main>.m_slide>").hover(
       function () {
         clearInterval(ms);
       },
@@ -102,10 +105,10 @@ function mv_btn() {
 }
 
 function numbering(){
-  var index = $(".main>.mainSlide div.on").index();
+  var index = $(".main>.main_slide div.on").index();
   $(".slide_btn .numbering .num").empty().append(index+1);
   // console.log(index);
-  var num_max = $(".main>.mainSlide div").length;
+  var num_max = $(".main>.main_slide div").length;
   // console.log(num_max);
   $(".slide_btn .numbering .num_max").empty().append(num_max);
 }

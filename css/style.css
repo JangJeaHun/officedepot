@@ -232,20 +232,20 @@ nav{
 
 
 /* 메인슬라이드 */
-.mainSlide{
+.main_slide{
     position: relative;
     height: 428px;
     width: 100%;
     margin-bottom: 20px;
 }
-.mainSlide>div{
+.main_slide>div{
     display: none;
     position: absolute;
 }
-.mainSlide>div img{
+.main_slide>div img{
     width: 100%;
 }
-.mainSlide>div:first-child{
+.main_slide>div:first-child{
     display: block;
 }
 
@@ -332,6 +332,11 @@ nav{
     box-sizing: border-box;
     border-spacing: 0px;
 }
+.depot_service>.div_wrap>div{
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+
 .depot_service>div>div:hover{
     border:1px solid #de7676;
 }
@@ -850,7 +855,7 @@ section .join_form #tab>ul>li>p.on{
     #m_header_bottom_ranking .data_val>.reco{
         display: none;
     }
-    .main>.mainSlide{
+    .main>.main_slide{
         padding-top: 191px;
         height: 163px;
     }
@@ -907,7 +912,7 @@ section .join_form #tab>ul>li>p.on{
     #m_bottom_menu{
         width: 425px;
     }
-    .main>.mainSlide{
+    .main>.main_slide{
         display: none;
     }
     #moblie_header{
